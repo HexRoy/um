@@ -1,6 +1,6 @@
 #include <math.h>
 #include <stdio.h>
-
+#include "segment.h"
 
 //INSTRUCTIONS
 
@@ -13,13 +13,13 @@ void conmove(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 }
 
 //OPCODE 1
-void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Mem memory) {
+void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
 //--------------------------------COMPLETE ME---------------------------------------------
 
 }
 
 //OPCODE 2
-void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Mem memory) {
+void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
 //--------------------------------COMPLETE ME---------------------------------------------
 
 }
@@ -78,7 +78,7 @@ void input(uint32_t c, uint32_t *r) {
 }
 
 //OPCODE 12
-void load(uint32_t b, uint32_t c, uint32_t *r, Mem memory) {
+void load(uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
 //--------------------------------COMPLETE ME---------------------------------------------
 }
 
