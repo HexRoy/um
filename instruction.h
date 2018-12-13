@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "segment.h"
-#include "execUM.h"
+//#include "execUM.h"
 //OPCODE 0
 void conmove(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 

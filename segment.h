@@ -9,7 +9,7 @@
 #include "segment.h"
 
 #define T Seg_T     
-typedef struct T;
+typedef struct T *T;
 T segmentNew();
 uint32_t segmentMap(T segment_memory, unsigned size);
 void segmentUnmap(T segment_memory, uint32_t ID);

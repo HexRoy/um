@@ -5,7 +5,7 @@
 #include <inttypes.h>
 #include "bitpack.h"
 #include "segment.h"
-#include "instructions.h"
+#include "instruction.h"
 
 //Initialized registers
 static uint32_t r[8] = {0,0,0,0,0,0,0,0};
