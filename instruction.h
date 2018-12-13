@@ -17,10 +17,10 @@ void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_mem
 void add(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 
 //OPCODE 4
-void mult(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
+void multiply(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 
 //OPCODE 5
-void div(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
+void divide(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 
 //OPCODE 6
 void nand(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);

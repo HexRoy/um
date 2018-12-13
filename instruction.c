@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "segment.h"
 #include "execUM.h"
+#include "instruction.h"
 //INSTRUCTIONS
 
 
@@ -28,12 +29,12 @@ void add(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 }
 
 //OPCODE 4
-void mult(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
+void multiply(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 	r[a] = (r[b] * r[c]) % pow(2, 32);
 }
 
 //OPCODE 5
-void div(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
+void divide(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 	r[a] = (r[b] / r[c]);
 }
 
