@@ -34,7 +34,7 @@ void mult(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 
 //OPCODE 5
 void div(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
-	r[a] = r[b] / r[c];
+	r[a] = (r[b] / r[c]);
 }
 
 //OPCODE 6
