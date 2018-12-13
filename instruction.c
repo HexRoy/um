@@ -56,7 +56,7 @@ void mapseg(uint32_t b, uint32_t c, uint32_t *r , Seg_T segment_memory) {
 
 //OPCODE 9
 void unmapseg(uint32_t c, uint32_t *r, Seg_T segment_memory) {
-//--------------------------------COMPLETE ME---------------------------------------------
+	
 	segmentUnmap(segment_memory, r[c]);
 }
 
