@@ -4,6 +4,7 @@
 #include <string.h>
 #include <inttypes.h>
 #include "bitpack.h"
+#include "segment.h"
 #include "instructions.h"
 
 //Initialized registers
@@ -21,6 +22,13 @@ static int prgcntr = 0;
 #define C_LSB 0
 
 
+struct T{
+    Segment_T memory;
+    uint32_t* registers;
+    uint32_t prog_counter;
+}; typedef struct T* T;
+
+
 // Function prototypes
 T newUM();
 void runUM(T um, const char* input);
@@ -28,14 +36,6 @@ void freeUM(T* um);
 size_t get_file_size(const char *filename);
 void load_file(T um, int size, const char* input);
 void route_instruct(T um, WORD_SIZE instruct);
-
-
-
-struct T{
-    Segment_T memory;
-    uint32_t* registers;
-    uint32_t prog_counter;
-}; typedef struct T* T;
 
 
 
