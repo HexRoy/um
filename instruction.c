@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "segment.h"
-
+#include "execUM.h"
 //INSTRUCTIONS
 
 
@@ -14,14 +14,12 @@ void conmove(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 
 //OPCODE 1
 void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
-//--------------------------------COMPLETE ME---------------------------------------------
-
+	r[a] = segmentLoad(segment_memory, r[b], r[c]);
 }
 
 //OPCODE 2
 void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
-//--------------------------------COMPLETE ME---------------------------------------------
-
+	segmentSave(segment_memory, r[a], r[b], r[c]);
 }
 
 //OPCODE 3
@@ -47,20 +45,19 @@ void nand(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 //OPCODE 7
 void halt() {
 	exit(EXIT_SUCCESS);
-	//--------------------------------COMPLETE ME---------------------------------------------
-
+	printf("program has succesfully been completed");
 }
 
 //OPCODE 8
-void mapseg() {
-//--------------------------------COMPLETE ME---------------------------------------------
+void mapseg(uint32_t b, uint32_t c, uint32_t *r , Seg_T segment_memory) {
 
+	r[b] = segmentMap(segment_memory, r[c]);
 }
 
 //OPCODE 9
-void unmapseg() {
+void unmapseg(uint32_t c, uint32_t *r, Seg_T segment_memory) {
 //--------------------------------COMPLETE ME---------------------------------------------
-
+	segmentUnmap(segment_memory, r[c]);
 }
 
 //OPCODE 10
@@ -71,7 +68,7 @@ void output(uint32_t c, uint32_t *r) {
 //OPCODE 11
 void input(uint32_t c, uint32_t *r) {
 	uint32_t input = getchar();
-	assert(inpput <= 255);
+	assert(input <= 255);
 	r[c] = input;
 	//--------------------------------COMPLETE ME---------------------------------------------
 
@@ -80,6 +77,9 @@ void input(uint32_t c, uint32_t *r) {
 //OPCODE 12
 void load(uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
 //--------------------------------COMPLETE ME---------------------------------------------
+	if (r[b] != 0) {
+			segmentMove(segment_memory, r[b], 0);
+	}
 }
 
 //OPCODE 13
