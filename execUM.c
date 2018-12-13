@@ -41,40 +41,40 @@ void runProg(struct segment *prog) {
 				conmove(a, b, c, r);
 			}
 			//
-			if (opcode == 1) {
+			else if (opcode == 1) {
 				segload(a, b, c, r, memory);
 			}
-			if (opcode == 2) {
+			else if (opcode == 2) {
 				segstore(a, b, c, r, memory);
 			}
-			if (opcode == 3) {
+			else if (opcode == 3) {
 				add(a, b, c, r);
 			}
-			if (opcode == 4) {
+			else if (opcode == 4) {
 				mult(a, b, c, r);
 			}
-			if (opcode == 5) {
+			else if (opcode == 5) {
 				div(a, b, c, r);
 			}
-			if (opcode == 6) {
+			else if (opcode == 6) {
 				nand(a, b, c, r);
 			}
-			if (opcode == 7) {
+			else if (opcode == 7) {
 				halt(memory, unmapped);
 			}
-			if (opcode == 8) {
+			else if (opcode == 8) {
 				mapseg(b, c, r, memory, unmapped);
 			}
-			if (opcode == 9) {
+			else if (opcode == 9) {
 				unmapseg(c, r, memory, unmapped);
 			}
-			if (opcode == 10) {
+			else if (opcode == 10) {
 				output(c, r);
 			}
-			if (opcode == 11) {
+			else if (opcode == 11) {
 				input(c, r);
 			}
-			if (opcode == 12) {
+			else if (opcode == 12) {
 				load(b, c, r, memory);
 			}
 		}
