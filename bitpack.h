@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "except.h"
+
 static uint64_t  shl;
 static uint64_t shr;
 static uint64_t aShr;
