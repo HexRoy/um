@@ -8,10 +8,10 @@
 #include "segment.h"
 
 #define T Seg_T
-struct T {
+typedef struct T {
 	Seq_T unmappedIDs;
 	Seq_T segments;
-};
+} T;
 
 T segmentNew() {
 	T segment_memory = malloc(sizeof(struct Seg_T));

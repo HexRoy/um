@@ -13,7 +13,7 @@ static uint32_t r[8] = {0,0,0,0,0,0,0,0};
 //initialize program counter
 static int prog_cntr = 0;
 
-static uint64_t get_reg(uint64_t word, unsigned width, unsigned lsb) {
+static uint64_t get_reg (uint64_t word, unsigned width, unsigned lsb) {
 	word = word << (64 - width - lsb);
 	word = word >> (64 - width);
 	return word;

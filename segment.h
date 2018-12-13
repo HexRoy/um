@@ -8,7 +8,7 @@
 #include <string.h>
 #include "segment.h"
 
-#define T Seg_T
+#define T Seg_T     
 typedef struct T;
 T segmentNew();
 uint32_t segmentMap(T segment_memory, unsigned size);
