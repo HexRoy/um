@@ -78,9 +78,7 @@ void input(uint32_t c, uint32_t *r) {
 //OPCODE 12
 void load(uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
 //--------------------------------COMPLETE ME---------------------------------------------
-	if (r[b] != 0) {
-			segmentMove(segment_memory, r[b], 0);
-	}
+
 }
 
 //OPCODE 13

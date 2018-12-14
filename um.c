@@ -22,11 +22,12 @@ static int prgcntr = 0;
 #define C_LSB 0
 
 
-struct T{
-    Segment_T memory;
-    uint32_t* registers;
-    uint32_t prog_counter;
-}; typedef struct T* T;
+struct T {
+        T memory;
+        uint32_t *registers;
+        uint32_t prog_counter;
+};
+typedef struct T *T;
 
 
 // Function prototypes

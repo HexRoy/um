@@ -8,10 +8,10 @@
 void conmove(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 
 //OPCODE 1
-void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory);
+void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, T segment_memory);
 
 //OPCODE 2
-void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory);
+void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, T segment_memory);
 
 //OPCODE 3
 void add(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
@@ -29,10 +29,10 @@ void nand(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 void halt();
 
 //OPCODE 8
-void mapseg(uint32_t b, uint32_t c, uint32_t *r , Seg_T segment_memory);
+void mapseg(uint32_t b, uint32_t c, uint32_t *r , T segment_memory);
 
 //OPCODE 9
-void unmapseg(uint32_t c, uint32_t *r, Seg_T segment_memory);
+void unmapseg(uint32_t c, uint32_t *r, T segment_memory);
 
 //OPCODE 10
 void output(uint32_t c, uint32_t *r);
@@ -41,7 +41,7 @@ void output(uint32_t c, uint32_t *r);
 void input(uint32_t c, uint32_t *r);
 
 //OPCODE 12
-void load(uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory);
+void load(uint32_t b, uint32_t c, uint32_t *r, T segment_memory);
 
 //OPCODE 13
 void loadval(uint32_t a, uint32_t val, uint32_t *r);

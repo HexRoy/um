@@ -6,12 +6,10 @@
 #include "seq.h"
 #include "assert.h"
 #include <string.h>
-#include "segment.h"
-
-#define T Seg_T     
 typedef struct T *T;
+
 T segmentNew();
-uint32_t segmentMap(T segment_memory, unsigned size);
+void segmentMap(T segment_memory, unsigned numWords);
 void segmentUnmap(T segment_memory, uint32_t ID);
 void segmentSave(T segment_memory, uint32_t ID, uint32_t offset, uint32_t word);
 uint32_t segmentLoad(T segment_memory, uint32_t ID, uint32_t offset);
