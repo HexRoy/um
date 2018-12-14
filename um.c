@@ -22,8 +22,8 @@ int main(int argc, char* argv[]){
     }
     
     else if (argc == 2){
-        T um;
-        runUM(um, argv[1]);
+        T um = newProg();
+        runProg(um, argv[1]);
     }
     
     else{

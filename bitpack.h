@@ -2,11 +2,13 @@
 #define BITPACK_INCLUDED
 #include <stdbool.h>
 #include <stdint.h>
+#include <math.h>
 #include "except.h"
+#include "assert.h"
 
-static uint64_t  shl;
-static uint64_t shr;
-static uint64_t aShr;
+uint64_t shl(uint64_t word, unsigned bits);
+uint64_t shr(uint64_t word, unsigned bits);
+uint64_t shr(uint64_t word, unsigned bits);
 bool Bitpack_fitsu(uint64_t n, unsigned width);
 bool Bitpack_fitss( int64_t n, unsigned width);
 uint64_t Bitpack_getu(uint64_t word, unsigned width, unsigned lsb);

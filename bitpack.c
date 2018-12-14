@@ -1,8 +1,8 @@
 #include <stdbool.h>
 #include <stdint.h>
+#include <math.h>
 #include "except.h"
 #include "bitpack.h"
-#include <math.h>
 #include "assert.h"
 
 
@@ -12,7 +12,7 @@
  * @param bits: the number of bits
  * @return : the shifted word
  */
-static uint64_t  shl(uint64_t word, unsigned bits){
+uint64_t shl(uint64_t word, unsigned bits){
     assert(bits <= 64);
     // if bits = 64, no need to shift
     if(bits == 64){
@@ -31,7 +31,7 @@ static uint64_t  shl(uint64_t word, unsigned bits){
  * @param bits: the number of bits
  * @return : the shifted word
  */
-static uint64_t shr(uint64_t word, unsigned bits){
+uint64_t shr(uint64_t word, unsigned bits){
     assert(bits<= 64); 
     // if bits = 64, no need to shift
     if (bits == 64) {
@@ -50,7 +50,7 @@ static uint64_t shr(uint64_t word, unsigned bits){
  * @param bits: the number of bits to shft by
  * @return : the signed shifted word
  */
-static uint64_t aShr(uint64_t word, unsigned bits){
+uint64_t shr(uint64_t word, unsigned bits)){
     asser(bits <= 64);
     // 63 is the largest possible signed number
     if (bits == 64){

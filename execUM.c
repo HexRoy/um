@@ -8,11 +8,17 @@
 #include "instruction.h"
 
 struct T {
-	Seg_T segment_memory;
+	T segment_memory;
 	uint32_t *r;
 	uint32_t prog_cntr;
-}; typedef struct T* T;
+};
 
+
+/**
+ * newProg: creates a new UM
+ *              defaults all registers to 0
+ * @return 
+ */
 T newProg() {
 	T prog = malloc(sizeof(struct T));
 	prog->segment_memory = segmentNew();
@@ -20,6 +26,13 @@ T newProg() {
 	prog->prog_cntr = 0;
 	return prog;
 }
+
+
+/**
+ * runProg: runs all the instructions in the prog
+ * @param UM
+ * @param input
+ */
 void runProg(T UM, const char* input) {
 	uint32_t instruction;
 	openFile(UM, input);
@@ -32,12 +45,19 @@ void runProg(T UM, const char* input) {
 	return;
 }
 
+
+/**
+ * openFile: reads the file and loads the instructions 
+ * @param UM
+ * @param input
+ */
 void openFile(T UM,  const char* input){
     char c;
     uint32_t word = 0;
     FILE* fp = fopen(input, "rb");
     uint32_t i = 0;
-    while (getc(fp) != NULL) {
+    c = getc(fp);
+    while (c != EOF) {
         c = getc(fp);
         word = Bitpack_newu(word, 32, 0, (uint64_t)c);
         segmentSave(UM->segment_memory, 0, i, word);
@@ -47,13 +67,18 @@ void openFile(T UM,  const char* input){
 }
 
 
+/**
+ * opcode_instructions: executes the instruction based on the op code
+ * @param UM
+ * @param instruct
+ */
 void opcode_instructions(T UM, uint32_t instruct){
     uint32_t opcode = Bitpack_getu(instruct, 4, 28);
     uint32_t a, b, c, val;
     if (opcode == 13) {
 			a = Bitpack_getu(instruct, 3, 25);
-			value = Bitpack_getu(instruct, 25, 0)
-			loadval(a, value, r);
+			val = Bitpack_getu(instruct, 25, 0);
+			loadval(a, val, r);
 	}
 	else if (opcode < 13 && opcode >= 0) {
 			a = Bitpack_getu(instruct, 3, 6);
@@ -108,7 +133,10 @@ void opcode_instructions(T UM, uint32_t instruct){
 }
     
 
-
+/**
+ * freeUM: frees the um from memory
+ * @param UM
+ */
 void freeUM(T* UM){
     Segment_free(&((*UM)->memory));
     free((*UM)->registers);
