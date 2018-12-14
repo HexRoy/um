@@ -4,7 +4,8 @@
 #include "except.h"
 #include "bitpack.h"
 #include "assert.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * shl: to left shift the bits of a word
@@ -50,8 +51,8 @@ uint64_t shr(uint64_t word, unsigned bits){
  * @param bits: the number of bits to shft by
  * @return : the signed shifted word
  */
-uint64_t shr(uint64_t word, unsigned bits)){
-    asser(bits <= 64);
+uint64_t aShr(uint64_t word, unsigned bits){
+    assert(bits <= 64);
     // 63 is the largest possible signed number
     if (bits == 64){
         bits = 63;
@@ -105,7 +106,7 @@ bool Bitpack_fitss( int64_t n, unsigned width) {
     if (width >= 64) {
         return true;
     }    
-    uint64_t ls = shl(n, 64 - width)
+    uint64_t ls = shl(n, 64 - width);
     // changes unsigned n into signed narrow
     int64_t narrow = aShr(ls , 64 - width);
     // returns true if signed narrow == unsigned n
@@ -123,7 +124,7 @@ bool Bitpack_fitss( int64_t n, unsigned width) {
  */
 uint64_t Bitpack_getu(uint64_t word, unsigned width, unsigned lsb) {
     // one above the MSB
-    unsiged hi = lsb + width;
+    unsigned hi = lsb + width;
     assert(hi <= 64);
     // left shifts the word by one above the MSB
     uint64_t ls = shl(word, 64 - hi);

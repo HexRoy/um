@@ -16,7 +16,7 @@ struct T {
 
 // function prototypes
 T segmentNew();
-void segmentMap(T segment_memory, unsigned numWords);
+void segmentMap();
 void segmentUnmap(T segment_memory, uint32_t ID);
 void segmentSave(T segment_memory, uint32_t ID, uint32_t offset, uint32_t word);
 uint32_t segmentLoad(T segment_memory, uint32_t ID, uint32_t offset);
@@ -29,8 +29,7 @@ void segmentFree(T segment_memory);
  * @return 
  */
 T segmentNew() {
-    T segment_memory = malloc(sizeof(struct Seg_T));
-    assert(Seg_T != NULL);
+    T segment_memory = malloc(sizeof(struct T));
 
     // Need to figure out how to store  ids and segments in seq_t
     //segment_memory->unmappedIDs = 
@@ -45,16 +44,16 @@ T segmentNew() {
  * @param segment_memory
  * @param numWords
  */
-void segmentMap(T segment_memory, unsigned numWords) {
-
-    // malloc memory for the segment
-    uint32_t seg = malloc(sizeof(uint32_t) * (numWords + 1));
-    // set all values in the segment to 0
-    for (uint32_t i = 0; i < (numWords + 1); i++) {
-            seg[i] = 0;
+void segmentMap() {
     
-    }
-    // TODO
+    // malloc memory for the segment
+    //uint32_t seg = (int) malloc(sizeof(uint32_t) * (numWords + 1));
+    // set all values in the segment to 0
+    //for (uint32_t i = 0; i < (numWords + 1); i++) {
+    //        seg[i] = 0;
+    return;
+    //}
+   // // TODO
 }
 
 
@@ -79,7 +78,7 @@ void segmentUnmap(T segment_memory, uint32_t ID) {
  */
 void segmentSave(T segment_memory, uint32_t ID, uint32_t offset, uint32_t word) {
     uint32_t wordLocation = offset + 1;
-    uint32_t segment = Seq_get(segment_memory->segments, ID);
+    uint32_t* segment = Seq_get(segment_memory->segments, ID);
     segment[wordLocation] = word;
 }
 
@@ -92,8 +91,8 @@ void segmentSave(T segment_memory, uint32_t ID, uint32_t offset, uint32_t word) 
  * @return 
  */
 uint32_t segmentLoad(T segment_memory, uint32_t ID, uint32_t offset) {
-    wordLocation = offset + 1;
-    uint32_t segment = Seq_get(segment_memory->segments, ID);
+    uint32_t wordLocation = offset + 1;
+    uint32_t* segment = Seq_get(segment_memory->segments, ID);
     return segment[wordLocation];
 }
 

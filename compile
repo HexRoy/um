@@ -39,12 +39,7 @@ done
 # link together .o files + libraries to make executable binaries
 # using one case statement per executable binary
 case $link in
-  all|compress) $CC $FLAGS $LFLAGS -o um um.o  $LIBS 
-                  linked=yes ;;
-esac
-
-case $link in
-  all|bitpack) $CC $FLAGS $LFLAGS -o bitpack bitpack.o $LIBS 
+  all|compress) $CC $FLAGS $LFLAGS -o um um.o execUM.o segment.o instruction.o bitpack.o $LIBS 
                   linked=yes ;;
 esac
 

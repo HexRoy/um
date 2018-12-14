@@ -9,7 +9,7 @@
 typedef struct T *T;
 
 T segmentNew();
-void segmentMap(T segment_memory, unsigned numWords);
+void segmentMap();
 void segmentUnmap(T segment_memory, uint32_t ID);
 void segmentSave(T segment_memory, uint32_t ID, uint32_t offset, uint32_t word);
 uint32_t segmentLoad(T segment_memory, uint32_t ID, uint32_t offset);

@@ -29,7 +29,7 @@ void nand(uint32_t a, uint32_t b, uint32_t c, uint32_t *r);
 void halt();
 
 //OPCODE 8
-void mapseg(uint32_t b, uint32_t c, uint32_t *r , T segment_memory);
+void mapseg();
 
 //OPCODE 9
 void unmapseg(uint32_t c, uint32_t *r, T segment_memory);
@@ -41,7 +41,7 @@ void output(uint32_t c, uint32_t *r);
 void input(uint32_t c, uint32_t *r);
 
 //OPCODE 12
-void load(uint32_t b, uint32_t c, uint32_t *r, T segment_memory);
+void load();
 
 //OPCODE 13
 void loadval(uint32_t a, uint32_t val, uint32_t *r);

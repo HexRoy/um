@@ -5,6 +5,9 @@
 #include <math.h>
 #include "except.h"
 #include "assert.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 
 uint64_t shl(uint64_t word, unsigned bits);
 uint64_t shr(uint64_t word, unsigned bits);

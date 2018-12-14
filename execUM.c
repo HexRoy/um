@@ -78,53 +78,53 @@ void opcode_instructions(T UM, uint32_t instruct){
     if (opcode == 13) {
 			a = Bitpack_getu(instruct, 3, 25);
 			val = Bitpack_getu(instruct, 25, 0);
-			loadval(a, val, r);
+			loadval(a, val, UM->r);
 	}
-	else if (opcode < 13 && opcode >= 0) {
+	else if (opcode < 13) {
 			a = Bitpack_getu(instruct, 3, 6);
 			b = Bitpack_getu(instruct, 3, 3);
 			c = Bitpack_getu(instruct, 3, 0);
 			//conmove
 			if (opcode == 0) {
-				conmove(a, b, c, r);
+				conmove(a, b, c, UM->r);
 			}
 			//
 			else if (opcode == 1) {
-				segload(a, b, c, r, memory);
+				segload(a, b, c, UM->r, UM->segment_memory);
 			}
 			else if (opcode == 2) {
-				segstore(a, b, c, r, memory);
+				segstore(a, b, c, UM->r, UM->segment_memory);
 			}
 			else if (opcode == 3) {
-				add(a, b, c, r);
+				add(a, b, c, UM->r);
 			}
 			else if (opcode == 4) {
-				mult(a, b, c, r);
+				multiply(a, b, c, UM->r);
 			}
 			else if (opcode == 5) {
-				div(a, b, c, r);
+				divide(a, b, c, UM->r);
 			}
 			else if (opcode == 6) {
-				nand(a, b, c, r);
+				nand(a, b, c, UM->r);
 			}
 			else if (opcode == 7) {
 				freeUM(&UM);
 				halt();
 			}
 			else if (opcode == 8) {
-				mapseg(b, c, r, memory, unmapped);
+				mapseg(b, c, UM->r, UM->segment_memory);
 			}
 			else if (opcode == 9) {
-				unmapseg(c, r, memory, unmapped);
+				unmapseg(c, UM->r, UM->segment_memory);
 			}
 			else if (opcode == 10) {
-				output(c, r);
+				output(c, UM->r);
 			}
 			else if (opcode == 11) {
-				input(c, r);
+				input(c, UM->r);
 			}
 			else if (opcode == 12) {
-				load(b, c, r, memory);
+				load(b, c, UM->r, UM->segment_memory);
 			}
 		}
 		else {
@@ -138,8 +138,8 @@ void opcode_instructions(T UM, uint32_t instruct){
  * @param UM
  */
 void freeUM(T* UM){
-    Segment_free(&((*UM)->memory));
-    free((*UM)->registers);
+    segmentFree(((*UM)->segment_memory));
+    free((*UM)->r);
     free(*UM);
 }
 

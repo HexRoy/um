@@ -14,23 +14,23 @@ void conmove(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
 }
 
 //OPCODE 1
-void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
+void segload(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, T segment_memory) {
 	r[a] = segmentLoad(segment_memory, r[b], r[c]);
 }
 
 //OPCODE 2
-void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
+void segstore(uint32_t a, uint32_t b, uint32_t c, uint32_t *r, T segment_memory) {
 	segmentSave(segment_memory, r[a], r[b], r[c]);
 }
 
 //OPCODE 3
 void add(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
-	r[a] = (r[b] + r[c]) % pow(2, 32);
+	r[a] = (r[b] + r[c]); // % pow(2, 32);
 }
 
 //OPCODE 4
 void multiply(uint32_t a, uint32_t b, uint32_t c, uint32_t *r) {
-	r[a] = (r[b] * r[c]) % pow(2, 32);
+	r[a] = (r[b] * r[c]); // % pow(2, 32);
 }
 
 //OPCODE 5
@@ -50,13 +50,13 @@ void halt() {
 }
 
 //OPCODE 8
-void mapseg(uint32_t b, uint32_t c, uint32_t *r , Seg_T segment_memory) {
-
-	r[b] = segmentMap(segment_memory, r[c]);
+void mapseg() {
+    return;
+	//r[b] = segmentMap();
 }
 
 //OPCODE 9
-void unmapseg(uint32_t c, uint32_t *r, Seg_T segment_memory) {
+void unmapseg(uint32_t c, uint32_t *r, T segment_memory) {
 	
 	segmentUnmap(segment_memory, r[c]);
 }
@@ -76,9 +76,9 @@ void input(uint32_t c, uint32_t *r) {
 }
 
 //OPCODE 12
-void load(uint32_t b, uint32_t c, uint32_t *r, Seg_T segment_memory) {
+void load() {
 //--------------------------------COMPLETE ME---------------------------------------------
-
+    return;
 }
 
 //OPCODE 13
